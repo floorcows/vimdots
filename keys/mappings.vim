@@ -18,8 +18,8 @@ nnoremap <C-s> :wa<CR>
 nnoremap <C-Q> :xa!<CR>
 
 " Navigating with C
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-\> <C-W>p
@@ -35,7 +35,12 @@ nnoremap <down> :bp<CR>
 " Adding nerdtree keybind
 nnoremap <silent> <leader>t :NERDTree<CR>
 
-"trying to find syntax highlight groups
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" Auto completion keybinds
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+inoremap kk <C-x><C-p>
+inoremap kk <C-x><C-p>
+
+" Better Indent in visual mode
+vmap < <gv
+vmap > >gv
