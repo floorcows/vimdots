@@ -2,27 +2,12 @@
 nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 
-"unmapping NERD Commenter keys
-"nunmap <leader>cc
-"nunmap <leader>cy
-"nunmap <leader>cu
-"nunmap <leader>ci
-"nunmap <leader>cl
-"nunmap <leader>cm
-"nunmap <leader>cn
-"nunmap <leader>c$
-"nunmap <leader>ca
-"nunmap <leader>cb
-"nunmap <leader>cA
-"nunmap <leader>cs
-"nunmap <leader>c<space>
 
 " Create map to add keys to
 let g:which_key_map =  {}
 " Define a separator
 let g:which_key_sep = '→'
 " set timeoutlen=100
-
 
 " Not a fan of floating windows for this
 let g:which_key_use_floating_win = 0
@@ -33,20 +18,17 @@ highlight default link WhichKeySeperator DiffAdded
 highlight default link WhichKeyGroup     Identifier
 highlight default link WhichKeyDesc      Function
 
-" Hide status line
-autocmd! FileType which_key
-autocmd  FileType which_key set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
-
 " Single mappings
 let g:which_key_map['h'] = [ '<C-W>s'                        , 'split below']
 let g:which_key_map['v'] = [ '<C-W>v'                        , 'split right']
 let g:which_key_map['w'] = [ ':set wrap!'                    , 'toggle line wrap' ]
-let g:which_key_map['g'] = [ ':AirlineToggle | Goyo 90%x90%' , 'zen mode' ]
-let g:which_key_map['d'] = [ ':bp | sp | bn | bd'            , 'delete buffer' ]
+let g:which_key_map['g'] = [ ':Goyo 90%x90%' , 'zen mode' ]
+let g:which_key_map['x'] = [ ':bp | sp | bn | bd'            , 'delete buffer' ]
+let g:which_key_map['d'] = [ ':w !diff % -'            , 'View differences since save' ]
 let g:which_key_map['m'] = [ ':w | :make'                    , 'save and make' ]
 let g:which_key_map['i'] = [ ':VerilogFollowInstance'        , 'Verilog: follow' ]
-let g:which_key_map['b'] = [ ':TagbarToggle<CR>'             , 'Open tagbar' ]
+let g:which_key_map['t'] = [ ':FloatermNew'                  , 'Terminal' ]
+let g:which_key_map['f'] = [ ':FloatermNew fzf'              , 'Use fzf to :e' ]
 
 "Conceal level mappings
 let g:which_key_map.0 = {
@@ -83,6 +65,7 @@ let g:which_key_map.a = {
 let g:which_key_map.l = {
       \  'name' : '+auto syntax' ,
       \  'c' : [':!clang-format % -i | edit %' , 'C++'],
+      \  'w' : [':%s/\s\+$//e' , 'Remove whitespace'],
       \}
 
 
